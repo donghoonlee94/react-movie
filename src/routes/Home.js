@@ -24,30 +24,27 @@ class Home extends React.Component {
   render() {
     const { isLoading, movies } = this.state
     return (
-      <div className="container">
+      <section className="container">
         {isLoading ? (
           <div className="loader">
             <span className="loader__text">Loading...</span>
           </div>
         ) : (
           <div className="movies">
-            {movies.map((m) => {
-              return (
-                <Movie
-                  className="movies"
-                  key={m.id}
-                  id={m.id}
-                  year={m.year}
-                  title={m.title}
-                  summary={m.summary}
-                  poster={m.medium_cover_image}
-                  genres={m.genres}
-                ></Movie>
-              )
-            })}
+            {movies.map((movie) => (
+              <Movie
+                key={movie.id}
+                id={movie.id}
+                year={movie.year}
+                title={movie.title}
+                summary={movie.summary}
+                poster={movie.medium_cover_image}
+                genres={movie.genres}
+              />
+            ))}
           </div>
         )}
-      </div>
+      </section>
     )
   }
 }
